@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Profile</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #ffe4ec, #ffd6e0);
+}
+
+/* HEADER */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background: white;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+h1 {
+  color: #c9184a;
+  margin: 0;
+}
+
+.logo {
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.logo:hover {
+  transform: scale(1.1);
+}
+
+/* CARD */
+.container {
+  display: flex;
+  justify-content: center;
+  margin-top: 80px;
+}
+
+.card {
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  width: 320px;
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+  animation: fadeIn 0.8s ease;
+}
+
+.card h2 {
+  color: #c9184a;
+}
+
+#welcome {
+  margin: 20px 0;
+  font-size: 18px;
+}
+
+/* BUTTON */
+button {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 10px;
+  background: #c9184a;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #a4133c;
+}
+
+/* ANIMATION */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+</style>
+
+</head>
+<body>
+
+<header>
+  <h1>EKA Handmade</h1>
+
+  <!-- 🔥 LOGO (պետք է լինի images/logo.jpg) -->
+  <img src="images — копия/изображение_viber_2025-07-24_12-19-42-622.jpg" class="logo" onclick="goHome()">
+</header>
+
+<div class="container">
+  <div class="card">
+
+    <h2>My Profile</h2>
+
+    <p id="welcome"></p>
+
+    <button onclick="logOut()">Log Out</button>
+
+  </div>
+</div>
+
+<script src="script.js"></script>
+
+<script>
+// user name
+let user = localStorage.getItem("user");
+
+if (user) {
+  document.getElementById("welcome").innerText = "Welcome " + user;
+}
+
+// եթե login չկա → redirect
+if (localStorage.getItem("loggedIn") !== "true") {
+  window.location.href = "login.html";
+}
+</script>
+
+</body>
+</html>
