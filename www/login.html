@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Login</title>
+
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #ffe4ec, #ffd6e0);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.container {
+  width: 340px;
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+  text-align: center;
+}
+
+h2 {
+  color: #c9184a;
+  margin-bottom: 20px;
+}
+
+.input-box {
+  position: relative;
+  margin: 10px 0;
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  outline: none;
+}
+
+.eye {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 18px;
+  user-select: none;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 10px;
+  background: #c9184a;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #a4133c;
+}
+
+.link {
+  margin-top: 15px;
+  font-size: 14px;
+  color: #c9184a;
+  cursor: pointer;
+}
+
+#status {
+  margin-top: 10px;
+  color: red;
+}
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+  <h2>Sign In</h2>
+
+  <input id="login-user" placeholder="Username">
+
+  <div class="input-box">
+    <input id="login-pass" type="password" placeholder="Password">
+    <span class="eye" onclick="togglePassword()" id="eye">👁</span>
+  </div>
+
+  <button onclick="logIn()">Login</button>
+
+  <div class="link" onclick="location.href='signup.html'">
+    Don't have account? Sign Up
+  </div>
+
+  <p id="status"></p>
+
+</div>
+
+<script>
+
+window.addEventListener("DOMContentLoaded", function () {
+  if (localStorage.getItem("loggedIn") === "true") {
+    window.location.href = "profile.html";
+  }
+});
+
+// =======================
+// AUTO REDIRECT (եթե արդեն login է)
+// =======================
+window.addEventListener("DOMContentLoaded", function () {
+  if (localStorage.getItem("loggedIn") === "true") {
+    window.location.href = "profile.html";
+  }
+});
+
+// =======================
+// SHOW / HIDE PASSWORD
+// =======================
+function togglePassword() {
+  let input = document.getElementById("login-pass");
+  let eye = document.getElementById("eye");
+
+  if (input.type === "password") {
+    input.type = "text";
+    eye.textContent = "🙈";
+  } else {
+    input.type = "password";
+    eye.textContent = "👁";
+  }
+}
+
+// =======================
+// LOGIN FUNCTION
+// =======================
+function logIn() {
+  let user = document.getElementById("login-user").value;
+  let pass = document.getElementById("login-pass").value;
+
+  let savedUser = localStorage.getItem("user");
+  let savedPass = localStorage.getItem("pass");
+
+  if (user === savedUser && pass === savedPass) {
+    localStorage.setItem("loggedIn", "true");
+    window.location.href = "profile.html";
+  } else {
+    document.getElementById("status").innerText =
+      "Wrong username or password";
+  }
+}
+
+// =======================
+// ENTER SUPPORT
+// =======================
+document.addEventListener("keydown", function (e) {
+  if (e.key === "Enter") {
+    logIn();
+  }
+});
+</script>
+
+<script src="script.js"></script>
+
+</body>
+</html>

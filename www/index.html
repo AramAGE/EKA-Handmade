@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EKA Handmade</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="images — копия/изображение_viber_2025-07-24_12-19-42-622.jpg">
+</head>
+<body>
+
+
+    <!-- Զամբյուղ կոճակը վերևում -->
+<button id="cartBtn" class="cart-btn">🛒 Զամբյուղ</button>
+
+    <header class="site-header">
+  <div class="header-content">
+
+    <h1 class="site-title">EKA Handmade</h1>
+
+    <img src="images — копия/изображение_viber_2025-07-24_12-19-42-622.jpg"
+         class="logo"
+         onclick="goToPage()"
+         style="cursor:pointer;">
+
+  </div>
+</header>
+
+
+<!-- Զամբյուղի մոդալ պատուհան -->
+<div id="cartModal" class="modal">
+  <div class="modal-content">
+    <span class="close" id="cartClose">&times;</span>
+    <h2>Ձեր զամբյուղը</h2>
+    <ul id="cartItems" style="text-align:left; padding-left: 20px;"></ul>
+    
+    <button id="orderBtn" style="
+  margin-top: 15px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  font-size: 16px;
+  border-radius: 10px;
+  cursor: pointer;
+">Պատվիրել</button>
+    
+    <p><strong>Ընդհանուր գումար: </strong><span id="totalPrice">0</span> դր</p>
+  </div>
+</div>
+
+    <section class="hero">
+        <h2>Ինքնատիպ ձեռագործ իրեր</h2>
+        <button onclick="scrollToCatalog()">Դիտել տեսականին</button>
+    </section>
+
+    <div class="search-box">
+  <input 
+    type="text" 
+    id="searchInput" 
+    placeholder="🔍 Որոնել ապրանք..."
+    onkeyup="searchProducts()"
+  >
+</div>
+
+<div class="price-range">
+
+  <input
+    type="number"
+    id="minPrice"
+    placeholder="Min գին"
+    onkeyup="filterByPrice()"
+  >
+
+  <input
+    type="number"
+    id="maxPrice"
+    placeholder="Max գին"
+    onkeyup="filterByPrice()"
+  >
+
+</div>
+
+    <section id="catalog">
+        <h2>Տեսականի</h2>
+        <div class="products">
+            <div class="product" data-price="8000">
+                <img src="images — копия/изображение_viber_2025-07-22_00-15-53-918.jpg" alt="">
+                <h3>Պայուսակ</h3>
+                <p>Գեղեցիկ ձեռագործ պայուսակ</p>
+                <span>Գին՝ 8000դր.</span>
+                <button onclick="addToCart('Ձեռագործ զարդարանքն', 8000)"
+ style="margin-top: 10px; padding: 8px 16px; background: #c9184a; color: white; border: none; border-radius: 10px; cursor: pointer;">
+Ավելացնել զամբյուղ
+</button>
+            </div>
+
+                <div class="product" data-price="9000">
+                    <img src="images — копия/изображение_viber_2025-07-22_00-15-53-955.jpg" alt="">
+                    <h3>Պայուսակ</h3>
+                    <p>Գեղեցիկ ձեռագործ պայուսակ</p>
+                    <span>Գին՝ 9000դր.</span>
+                    <button onclick="addToCart('Ձեռագործ զարդարանքն', 9000)"
+ style="margin-top: 10px; padding: 8px 16px; background: #c9184a; color: white; border: none; border-radius: 10px; cursor: pointer;">
+Ավելացնել զամբյուղ
+</button>
+                </div>
+
+                <div class="product" data-price="7000">
+                    <img src="images — копия/Снимок экрана 2025-07-22 164733.png" alt="">
+                    <h3>Պայուսակ</h3>
+                    <p>Գեղեցիկ ձեռագործ պայուսակ</p>
+                    <span>Գին՝ 7000դր.</span>
+                    <button onclick="addToCart('Ձեռագործ զարդարանքն', 7000)"
+ style="margin-top: 10px; padding: 8px 16px; background: #c9184a; color: white; border: none; border-radius: 10px; cursor: pointer;">
+Ավելացնել զամբյուղ
+</button>
+                </div>
+
+                <div class="product" data-price="11000">
+                    <img src="images — копия/Снимок экрана 2025-07-22 164855.png" alt="">
+                    <h3>Պայուսակ</h3>
+                    <p>Գեղեցիկ ձեռագործ պայուսակ</p>
+                    <span>Գին՝ 11000դր.</span>
+                    <button onclick="addToCart('Ձեռագործ զարդարանքն', 11000)"
+ style="margin-top: 10px; padding: 8px 16px; background: #c9184a; color: white; border: none; border-radius: 10px; cursor: pointer;">
+Ավելացնել զամբյուղ
+</button>
+                </div>
+
+                <div class="product" data-price="6000">
+                    <img src="images — копия/Снимок экрана 2025-07-22 165009.png" alt="">
+                    <h3>Պայուսակ</h3>
+                    <p>Գեղեցիկ ձեռագործ պայուսակ</p>
+                    <span>Գին՝ 6000դր.</span>
+                    <button onclick="addToCart('Ձեռագործ զարդարանքն', 6000)"
+ style="margin-top: 10px; padding: 8px 16px; background: #c9184a; color: white; border: none; border-radius: 10px; cursor: pointer;">
+Ավելացնել զամբյուղ
+</button>
+                </div>
+            </div>
+    </section>
+
+
+    <section id="contact">
+        <h2>Կապ մեզ հետ</h2>
+        <p>📸 Instagram՝ <a href="https://instagram.com/ekahandmadekristine" target="_blank">@eka_handmade</a></p>
+        <p>📞 telephone` +374 55 95 34 04</p>
+    </section>
+
+
+    <footer>
+        <p>&copy; 2025 EKA Handmade. Բոլոր իրավունքները պաշտպանված են։</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
