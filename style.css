@@ -1,1 +1,661 @@
+\/* --- Հիմնական --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(120deg, #fff8f4, #ffe9e3);
+  color: #333;
+  overflow-x: hidden;
+}
 
+/* --- Վերնագիր --- */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(255, 233, 233, 0.9);
+  backdrop-filter: blur(10px);
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+header h1 {
+  font-size: 2.8em;
+  color: #742828;
+  letter-spacing: 1px;
+}
+nav a {
+  margin: 0 15px;
+  color: #742828;
+  font-weight: bold;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+nav a:hover {
+  color: #ff5a5a;
+}
+
+/* --- Hero բաժին --- */
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding: 100px 20px;
+  text-align: center;
+  border-radius: 32px;
+  background: linear-gradient(135deg, #ffe0ec, #fff9fc);
+  box-shadow: 0 15px 40px rgba(214, 51, 132, 0.2);
+  animation: backgroundShift 12s ease-in-out infinite alternate;
+}
+
+/* Տիտղոս */
+.hero h2 {
+  font-size: 3rem;
+  color: #c9184a;
+  z-index: 2;
+  position: relative;
+  animation: floatIn 1.4s ease-out;
+  text-shadow: 0 0 10px rgba(255, 192, 203, 0.6);
+}
+
+/* Կոճակ */
+.hero button {
+  margin-top: 30px;
+  padding: 16px 48px;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 32px;
+  background: linear-gradient(45deg, #ff4d6d, #d63384);
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(214, 51, 132, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: pulse 2.5s infinite;
+}
+
+.hero button:hover {
+  transform: scale(1.08);
+  box-shadow: 0 12px 30px rgba(214, 51, 132, 0.6);
+}
+
+/* Շարժվող ֆոնային բանաձև */
+@keyframes backgroundShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Տեքստի փափուկ հայտնվել */
+@keyframes floatIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Կոճակի թրթռացող էֆֆեկտ */
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+
+.hero button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.2);
+}
+
+/* --- Տեսականի --- */
+#catalog {
+  padding: 60px 20px;
+  text-align: center;
+}
+#catalog h2 {
+  font-size: 2em;
+  margin-bottom: 30px;
+  color: #992e2e;
+}
+
+.products {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+}
+
+.product {
+  background: white;
+  border-radius: 16px;
+  padding: 20px;
+  width: 230px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.06);
+  transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
+  opacity: 0;
+  transform: translateY(40px);
+  animation: fadeUp 1s ease forwards;
+}
+
+.product:nth-child(1) { animation-delay: 0.2s; }
+.product:nth-child(2) { animation-delay: 0.4s; }
+
+.product:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+  background: #fff3f3;
+}
+
+.product img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  transition: 0.4s ease;
+}
+.product:hover img {
+  transform: scale(1.05);
+}
+
+.product h3 {
+  margin-top: 15px;
+  color: #5a2e2e;
+  font-size: 1.2em;
+}
+.product p {
+  font-size: 0.95em;
+  margin-top: 8px;
+  color: #666;
+}
+.product span {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+  color: #a34d4d;
+}
+
+/* --- Կապ --- */
+#contact {
+  background: #fff0f0;
+  padding: 50px 20px;
+  text-align: center;
+}
+#contact h2 {
+  font-size: 1.8em;
+  color: #b45353;
+  margin-bottom: 20px;
+}
+#contact a {
+  color: #843939;
+  text-decoration: none;
+}
+#contact a:hover {
+  text-decoration: underline;
+}
+
+/* --- Վերջ --- */
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #f9c5c5;
+  font-size: 0.9em;
+  color: #4a2a2a;
+}
+
+/* --- Keyframes --- */
+@keyframes fadeIn {
+  from { opacity: 0; } to { opacity: 1; }
+}
+
+@keyframes floatIn {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeUp {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+#catalog {
+  padding: 80px 20px;
+  background: 
+    radial-gradient(circle at top left, rgba(214, 51, 132, 0.15), transparent 50%),
+    radial-gradient(circle at bottom right, rgba(255, 182, 193, 0.12), transparent 50%),
+    linear-gradient(135deg, #fff8fb, #ffeef3);
+  border-radius: 32px;
+  max-width: 1200px;
+  margin: 60px auto;
+  box-shadow: 0 15px 30px rgba(214, 51, 132, 0.08);
+  backdrop-filter: saturate(180%) blur(15px);
+  -webkit-backdrop-filter: saturate(180%) blur(15px);
+  animation: fadeSlide 1s ease-out;
+  transition: background 0.3s ease;
+}
+
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 32px;
+  margin-top: 40px;
+}
+
+.product {
+  background: white;
+  border-radius: 24px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.07);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+  text-align: center;
+  padding: 24px 16px;
+}
+
+.product:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 35px rgba(0, 0, 0, 0.1);
+}
+
+.product img {
+  max-width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 16px;
+  margin-bottom: 16px;
+  transition: 0.3s ease;
+}
+
+.product:hover img {
+  transform: scale(1.04);
+  filter: brightness(1.05);
+}
+
+.product h3 {
+  font-size: 20px;
+  color: #a61e4d;
+  margin-bottom: 8px;
+}
+
+.product p {
+  font-size: 16px;
+  color: #555;
+}
+
+
+/* Փայլիկների կոնտեյներ */
+.particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+/* Յուրաքանչյուր փայլիկ */
+.particles span {
+  position: absolute;
+  display: block;
+  width: 12px;
+  height: 12px;
+  background: rgba(255, 192, 203, 0.5);
+  border-radius: 50%;
+  animation: sparkleMove 12s linear infinite;
+  filter: blur(2px);
+}
+
+/* Տարբեր դիրքեր և չափեր */
+.particles span:nth-child(1) {
+  left: 20%;
+  animation-duration: 14s;
+  animation-delay: 0s;
+}
+
+.particles span:nth-child(2) {
+  left: 40%;
+  width: 16px;
+  height: 16px;
+  animation-duration: 18s;
+  animation-delay: 2s;
+}
+
+.particles span:nth-child(3) {
+  left: 60%;
+  animation-duration: 20s;
+  animation-delay: 4s;
+}
+
+.particles span:nth-child(4) {
+  left: 80%;
+  width: 10px;
+  height: 10px;
+  animation-duration: 16s;
+  animation-delay: 1s;
+}
+
+.particles span:nth-child(5) {
+  left: 90%;
+  width: 14px;
+  height: 14px;
+  animation-duration: 22s;
+  animation-delay: 3s;
+}
+
+/* Շարժման անիմացիա */
+@keyframes sparkleMove {
+  0% {
+    top: 110%;
+    transform: translateX(0) scale(1);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    top: -10%;
+    transform: translateX(30px) scale(1.5);
+    opacity: 0;
+  }
+}
+
+@keyframes windowFade {
+  0% {
+    opacity: 0;
+    transform: translateY(40px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+
+.product {
+  /* արդեն եղած կարգավորումները */
+  background: #fff;
+  border-radius: 24px;
+  padding: 30px;
+  box-shadow: 0 10px 30px rgba(214, 51, 132, 0.15);
+  text-align: center;
+  max-width: 300px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  /* ՆՈՐ animation */
+  animation: windowFade 1s ease forwards;
+  opacity: 0; /* մինչև animation-ը սկսի */
+}
+
+/* Եթե ունես մի քանի քարտիկ, կարող ենք յուրաքանչյուրին փոքր հետաձգում տալ՝ stagger effect */
+.product:nth-child(1) {
+  animation-delay: 0.2s;
+}
+.product:nth-child(2) {
+  animation-delay: 0.4s;
+}
+.product:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0; top: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(6px);
+  background: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 30px;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 500px;
+  text-align: center;
+  position: relative;
+  animation: popup 0.4s ease;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.modal-content img {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.modal-content .price {
+  color: #c9184a;
+  font-weight: bold;
+  font-size: 1.4rem;
+  margin-top: 10px;
+}
+
+.close {
+  position: absolute;
+  top: 14px;
+  right: 20px;
+  font-size: 28px;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+}
+
+@keyframes popup {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.remove-btn {
+  color: #c9184a;
+  cursor: pointer;
+  margin-left: 10px;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .product {
+    flex-direction: column;
+    width: 100%;
+    font-size: 16px;
+  }
+
+  .product img {
+    width: 100%;
+    height: auto;
+  }
+
+  .btn {
+    font-size: 18px;
+    padding: 12px 20px;
+  }
+}
+
+
+.site-header {
+  background: linear-gradient(90deg, #fce4ec, #f8bbd0);
+  padding: 20px 30px;
+  box-shadow: 0 6px 15px rgba(255, 182, 193, 0.3);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid #f8bbd0;
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;  /* Տեքստը ձախ, լոգոն՝ աջ */
+  align-items: center;
+}
+
+.site-title {
+  font-size: 28px;
+  font-weight: 500;
+  color: #c2185b;
+  font-family: 'Playfair Display', serif;
+  margin: 0;
+  letter-spacing: 1.2px;
+  text-shadow: 1px 1px 2px #f8bbd0;
+}
+
+.logo {
+  height: 55px;
+  width: auto;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(245, 143, 177, 0.4);
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+}
+
+
+@media (max-width: 768px) {
+  .cart-btn {
+    display: block; /* Հեռախոսում էլ միշտ երևա */
+  }
+}
+
+
+.cart-btn {
+  position: fixed;
+  top: 70px;
+  right: 15px;
+  background-color: #c9184a;
+  color: white;
+  border: none;
+  padding: 8px 16px;        /* Փոքր չափս */
+  font-size: 14px;          /* Փոքր տառաչափ */
+  border-radius: 25px;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(201, 24, 74, 0.8);
+  z-index: 10000;
+  animation: pulse 2.5s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(201, 24, 74, 0.8);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(201, 24, 74, 1);
+    transform: scale(1.05);
+  }
+}
+
+.auth {
+  background: #2c2c2c;
+  padding: 20px;
+  border-radius: 15px;
+  width: 250px;
+  margin: auto;
+  text-align: center;
+}
+
+.auth input {
+  display: block;
+  width: 100%;
+  margin: 8px 0;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+}
+
+.auth button {
+  margin: 5px;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.auth button:hover {
+  background: #555;
+}
+
+
+.logo {
+  text-decoration: none;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.search-box {
+  text-align: center;
+  margin: 30px 0;
+}
+
+#searchInput {
+  width: 320px;
+  max-width: 90%;
+  padding: 14px 20px;
+  border-radius: 30px;
+  border: 2px solid #f8bbd0;
+  outline: none;
+  font-size: 16px;
+  transition: 0.3s;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+#searchInput:focus {
+  border-color: #c9184a;
+  box-shadow: 0 0 15px rgba(201,24,74,0.3);
+}
+
+.product {
+  transition: 0.3s ease;
+}
+
+
+.price-range {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 30px 0;
+  flex-wrap: wrap;
+}
+
+.price-range input {
+  width: 180px;
+  padding: 14px 18px;
+  border-radius: 25px;
+  border: 2px solid #f8bbd0;
+  outline: none;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.price-range input:focus {
+  border-color: #c9184a;
+  box-shadow: 0 0 12px rgba(201,24,74,0.3);
+}
